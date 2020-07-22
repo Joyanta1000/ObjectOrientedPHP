@@ -8,7 +8,6 @@ if ($id==false) {
 }
 else{
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

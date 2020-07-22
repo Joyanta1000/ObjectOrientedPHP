@@ -1,6 +1,4 @@
 <?php
-session_start();
-ob_start();
 class Model{
 	private $server = "localhost";
 	private $username = "root";
