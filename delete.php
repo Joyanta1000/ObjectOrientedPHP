@@ -1,4 +1,12 @@
 <?php
+session_start();
+ob_start();
+$id = isset($_SESSION['id']);
+if ($id==false) {
+  echo "<script>alert('Login first');</script>";
+  echo "<script>window.location.href = 'login.php';</script>";
+}
+else{
 include 'model.php';
 $model = new Model();
 $id = $_REQUEST['id'];
@@ -10,5 +18,6 @@ if ($delete) {
 else{
 	echo "<script>alert('Failed to delete');</script>";
 	echo "<script>window.location.href = 'records.php';</script>";
+}
 }
 ?>

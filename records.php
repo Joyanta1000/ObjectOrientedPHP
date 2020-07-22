@@ -20,6 +20,14 @@
   </thead>
   <tbody>
     <?php
+session_start();
+ob_start();
+$id = isset($_SESSION['id']);
+if ($id==false) {
+  echo "<script>alert('Login first');</script>";
+  echo "<script>window.location.href = 'login.php';</script>";
+}
+else{
     include 'model.php';
     $model = new Model();
     $rows = $model->fetch();
@@ -39,9 +47,13 @@
     else{
       echo "No data";
     }
+  }
     ?>
   </tbody>
 </table>
+<br>
+  <br>
+  <div><a href="home.php" style="text-decoration: none;">Back to home</a></div>
 </div>
 </body>
 </html>

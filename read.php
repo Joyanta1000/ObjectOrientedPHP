@@ -11,6 +11,14 @@
 <body>
 <form style="padding: 30px;">
   <?php
+session_start();
+ob_start();
+$id = isset($_SESSION['id']);
+if ($id==false) {
+  echo "<script>alert('Login first');</script>";
+  echo "<script>window.location.href = 'login.php';</script>";
+}
+else{
   include 'model.php';
   $model = new Model();
   $id = $_REQUEST['id'];
@@ -27,6 +35,7 @@
     <input type="text" name="password" value="<?php echo $row['password']?>" class="form-control" id="exampleInputPassword1" readonly>
   </div>
   <?php
+  }
   }
   ?>
 </form>

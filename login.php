@@ -13,20 +13,20 @@
   <?php
   include "model.php";
   $model = new Model();
-  $register = $model->register();
+  $insert = $model->login();
   ?>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
+  </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
-  <button type="submit" name="register" class="btn btn-primary">Register</button>
+  <button type="submit" name="login" class="btn btn-primary">Login</button>
   <br>
   <br>
-  <div><a href="login.php">Login, if you have account</a></div>
+  <div><a href="index.php">Register, if you have no account</a></div>
 </form>
 </body>
 </html>

@@ -11,6 +11,14 @@
 <body>
 <form action="" method="post" style="padding: 30px;">
   <?php
+session_start();
+ob_start();
+$id = isset($_SESSION['id']);
+if ($id==false) {
+  echo "<script>alert('Login first');</script>";
+  echo "<script>window.location.href = 'login.php';</script>";
+}
+else{
   include "model.php";
   $model = new Model();
   $id = $_REQUEST['id'];
@@ -43,7 +51,6 @@
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" name="email" value="<?php echo $row['email']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
@@ -53,3 +60,6 @@
 </form>
 </body>
 </html>
+<?php
+}
+?>
